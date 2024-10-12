@@ -8,4 +8,6 @@
             <p>{{ post.body }}</p>
         </div>
     {% endfor %}
+
+    <a href="{% url 'post_create' %}">Crear Post</a>
 {% endblock content %}
