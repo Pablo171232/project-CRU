@@ -7,8 +7,10 @@ from django.views.generic import TemplateView
 class SignUpView(CreateView):
     
     form_class = UserCreationForm
-    suces_url = reverse_lazy("login")
-    template_name = "registration/signup"
+    success_url = reverse_lazy("login")
+    template_name = "registration/signup.html"
 
-    class LogoutView(TemplateView):
-        template_name = "logout.html"
+
+def FirstPage(request):
+
+    return render(request, 'first_page.html',)

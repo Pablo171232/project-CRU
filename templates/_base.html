@@ -1,18 +1,50 @@
-{% load static %}
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <title>Navbar Verde</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #4CAF50; /* Color verde */
+            overflow: hidden;
+            padding: 10px 20px;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #45a049; /* Color verde más oscuro al pasar el mouse */
+        }
+    </style>
 </head>
-<body> 
-    <header> 
-        <a href="{% url 'post_list' %}">Home</a>
-    </header>
+<body>
+
+    <div class="navbar">
+       <a href="{% url 'signup' %}">Sign up</a>
+       <a href="{% url 'login' %}">Log in</a>
+       <a href="{% url 'post_list' %}">Home</a>
+       
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <input type="submit" vaule="Log out">
+
+    </form>
+    </div>
     {% block content %}
-    {% endblock content %}
+
+    {% endblock %}
 </body>
 </html>
